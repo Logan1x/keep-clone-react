@@ -1,15 +1,12 @@
 import { useState } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faCircle } from '@fortawesome/fontawesome-free-solid';
-
 import firebase from "./firebase";
 
-const submitData = () => {
+const submitData = (userid) => {
   const [title , setTitle] = useState('');
   const [textdata, setTextdata] = useState('');
   // const [color, setColor] = useState('white');
+  const uid = userid.userid;
 
   function formSubmit(e){
     e.preventDefault();
@@ -17,6 +14,7 @@ const submitData = () => {
       .firestore()
       .collection('times')
       .add({
+        uid,
         title,
         textdata
       })
