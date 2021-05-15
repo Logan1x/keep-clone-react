@@ -31,7 +31,7 @@ function removeItem(itemId) {
     .doc(itemId)
     .delete()
     .then(() => {
-      console.log("Document successfully deleted!");
+      console.log("Notes successfully deleted!");
     })
     .catch((error) => {
       console.error("Error removing document: ", error);
