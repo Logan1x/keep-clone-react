@@ -19,7 +19,7 @@ function UseData(uid) {
 
       setTimes(newTimes);
     });
-  }, [times]);
+  }, []);
 
   return times;
 }
