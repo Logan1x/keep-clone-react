@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 
 import Retrieve from "./retrieve";
 import Send from "./send";
-// import SocialMediaAuth from './auth';
-// import { githubProvider, googleProvider} from './authprovider'
 
 export default function Auth() {
   const [uname, setUname] = useState([]);
@@ -109,21 +107,14 @@ export default function Auth() {
           // this value to authenticate with your backend server, if
           // you have one. Use User.getToken() instead.
 
-          // console.log(name, email);
           const test = [name, email, photoUrl];
 
-          // console.log(uid);
-          
           setUserid(uid);
-
-          // console.log('user id is',userid);
 
           setUname(test);
 
           setLogin(true);
         }
-      } else {
-        // console.log("user not signed in");
       }
     });
   }, [login]);
@@ -133,12 +124,8 @@ export default function Auth() {
       {login ? (
         <div >
           <div className="flexy">
-            {/* <li>{uname[0]}</li>
-          <li>{uname[1]}</li>
-          <img src={uname[2]} alt="" /> */}
             <Send userid={userid} />
             <Retrieve userid={userid} />
-            {/* <button onClick={userSignout}>Signout</button> */}
           </div>
           <button className="auth-signout" onClick={userSignout}>Signout</button>
         </div>
@@ -152,7 +139,6 @@ export default function Auth() {
           <button onClick={handleOnClickGoogle}>Sign In Using Google</button>
         </div>
       )}
-      {/* <button onClick={userSignout}>Signout</button> */}
       <footer>
         <p>
           Developed by <a href="https://logan1x.github.io">@logan1x</a>

@@ -6,19 +6,17 @@ function UseData(uid) {
   const [times, setTimes] = useState([]);
 
   useEffect(() => {
-    var citiesRef = firebase.firestore().collection("times");
-
-    // Create a query against the collection.
-    var query = citiesRef.where("uid", "==", uid);
-
-    query.get().then((snapshot) => {
-      const newTimes = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-
-      setTimes(newTimes);
-    });
+    firebase
+      .firestore()
+      .collection("times")
+      .where("uid", "==", uid)
+      .onSnapshot((snapshot) => {
+        const newTimes = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setTimes(newTimes);
+      });
   }, []);
 
   return times;
@@ -63,7 +61,6 @@ const getData = (userid) => {
 
     console.log(query);
   };
-  // console.log(userid.userid);
   return (
     <div>
       <h1 className="text-retrive">submitted notes are shown below</h1>
@@ -73,7 +70,6 @@ const getData = (userid) => {
             <h4>{time.title}</h4>
             <p>{time.textdata}</p>
             <button className="btn-delete" onClick={() => removeItem(time.id)}> <FaTimesCircle /> </button>
-            {/* <p>{time.uid}</p> */}
           </div>
         ))}
       </div>
