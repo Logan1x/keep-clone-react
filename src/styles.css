@@ -125,30 +125,32 @@
   margin-left: -40px;
 }
 
-.submit button {
+ .btn {
   border: none;
   display: block;
   width: 100px;
   margin: auto;
   padding: 0.8rem;
-  border-radius: 0.8rem;
+  border-radius: 0.7rem;
   background: #6c63ff;
   color: white;
+  cursor: pointer;
   /* width: 100%; */
 }
 
-.submit button:hover {
+.btn:hover {
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 255, 0.2);
 }
 
-button {
+.btn-auth {
   border: none;
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   margin: 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: 0.8rem;
   cursor: pointer;
 }
+
 
 footer {
   position: absolute;

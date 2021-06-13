@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { FaTimesCircle } from 'react-icons/fa';
 import firebase from "./firebase";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UseData(uid) {
   const [times, setTimes] = useState([]);
@@ -29,7 +31,9 @@ function removeItem(itemId) {
     .doc(itemId)
     .delete()
     .then(() => {
-      console.log("Notes successfully deleted!");
+      // console.log("Notes successfully deleted!");
+      const warn = () => toast.warn("Note Deleted!");
+      warn()
     })
     .catch((error) => {
       console.error("Error removing document: ", error);
@@ -39,6 +43,8 @@ function removeItem(itemId) {
 const getData = (userid) => {
   const uid = userid.userid;
   const times = UseData(uid);
+
+  
 
   const func = () => {
     // Create a reference to the cities collection
@@ -70,6 +76,7 @@ const getData = (userid) => {
             <h4>{time.title}</h4>
             <p>{time.textdata}</p>
             <button className="btn-delete" onClick={() => removeItem(time.id)}> <FaTimesCircle /> </button>
+            <ToastContainer />
           </div>
         ))}
       </div>

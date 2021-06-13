@@ -127,16 +127,16 @@ export default function Auth() {
             <Send userid={userid} />
             <Retrieve userid={userid} />
           </div>
-          <button className="auth-signout" onClick={userSignout}>Signout</button>
+          <button className="btn" onClick={userSignout}>Signout</button>
         </div>
       ) : (
         <div className="signin">
           <h2>
             looks like you are not signed in, please sign in using below options
           </h2>
-          <button onClick={handleOnClickGithub}>Sign In With Github</button>
+          <button className="btn-auth" onClick={handleOnClickGithub}>Sign In With Github</button>
           <div>Or</div>
-          <button onClick={handleOnClickGoogle}>Sign In Using Google</button>
+          <button className="btn-auth" onClick={handleOnClickGoogle}>Sign In Using Google</button>
         </div>
       )}
       <footer>
